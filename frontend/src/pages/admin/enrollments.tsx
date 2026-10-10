@@ -29,7 +29,6 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEnrollmentStore } from "@/lib/enrollment-store";
-
 type Option = { value: string; label: string };
 
 function OptionSelect({
@@ -66,8 +65,7 @@ function OptionSelect({
 }
 
 export default function AdminEnrollmentsPage() {
-  const { students, courses, enrollments, enroll } = useEnrollmentStore();
-
+  const { students, courses, enrollments, enroll} = useEnrollmentStore();
   const [formStudent, setFormStudent] = useState<string | null>(null);
   const [formCourse, setFormCourse] = useState<string | null>(null);
   const [enrollDialogOpen, setEnrollDialogOpen] = useState(false);
@@ -116,6 +114,7 @@ export default function AdminEnrollmentsPage() {
       setServerError(null);
     }
   };
+
 
   const rows = enrollments.filter((e) =>
     mode === "course"
@@ -194,7 +193,7 @@ export default function AdminEnrollmentsPage() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-
+      
       <Tabs
         value={mode}
         onValueChange={(v) => setMode(v as "course" | "student")}

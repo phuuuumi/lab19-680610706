@@ -81,6 +81,10 @@ export const zStudentPutBody = z.object({
   emails: zEmails.nullish(),
 });
 
+export const zStudentDeleteBody = z.object({
+  studentId: zStudentId,
+});
+
 ////// Enrollment Validators //////
 
 export const zEnrollmentBody = z.object({
@@ -96,4 +100,15 @@ export const zUserBody = z.object({
   role: z.enum(["STUDENT", "ADMIN"], {
     message: "Role must be either STUDENT or ADMIN",
   }),
+});
+
+export const zEnrollmentPutBody = z.object({
+  studentId: zStudentId,
+  courseId: zCourseId,
+  newCourseId: zCourseId,
+});
+
+export const zEnrollmentDeleteBody = z.object({
+  studentId: zStudentId,
+  courseId: zCourseId,
 });

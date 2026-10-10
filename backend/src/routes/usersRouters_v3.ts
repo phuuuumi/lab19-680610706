@@ -76,7 +76,7 @@ router.get(
   },
 );
 
-// POST /api/v3/users
+// POST /api/v3/users/login
 
 router.post("/login", async (req: Request, res: Response) => {
   try {
